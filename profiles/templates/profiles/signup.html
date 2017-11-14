@@ -1,0 +1,23 @@
+{% extends "blog/snippets/base_without_nav.html"%}
+{% block content %}
+	<h2>Signup</h2>
+	<form method="POST"> {% csrf_token %}
+		{% for field in form %}
+			<p>
+				{{ field.label_tag }} <br>
+				{{ field }}
+<!-- 				{% if field.help_text %}
+					<small>{{ field.help_text }}</small>
+				{% endif %} -->
+				{% if field.errors %}
+					{{ field.errors }}
+				{% endif %}
+				{% for error in field.errors %}
+		          <p style="color: red">{{ error }}</p>
+        		{% endfor %}
+
+			</p>
+		{% endfor %}
+		<button type="Submit">Signup</button>
+	</form>
+{% endblock content %}

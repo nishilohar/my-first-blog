@@ -1,0 +1,17 @@
+{% extends "blog/snippets/base_without_nav.html" %}
+
+{% block content %}
+{% if title %}
+	<h2>{{ title }}</h2>
+{% endif %}
+{% if form %}
+	<form method="POST">{% csrf_token %}
+		{{ form.as_p }}
+		<input type="Submit" value="Add Story">
+	</form>
+{% endif %}
+
+{% if confirm_message %}
+	<h2>{{ confirm_message }}</h2>
+{% endif %}
+{% endblock content %}

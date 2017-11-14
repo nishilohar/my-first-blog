@@ -1,0 +1,62 @@
+{% extends "blog/snippets/base.html" %}
+{% load static %}
+
+{% block content %}
+	<br><br><br><br>
+	<h2>Explore Topics</h2>
+
+{% if category_questions %}
+	<div class="container blog-content" id="BLOG-HOME">
+			<div class="row">
+				{% for eachStory in category_questions %}	
+					<div class="col-md-4">
+						<div class="each-card">
+							<div class="card">
+								<a href="/{{ eachStory.id }}/"><img class="card-img-top" src="{% static 'blog/images/content.png' %}" alt="Card image cap"></a>
+								<div class="card-body">
+									<a href="/{{ eachStory.id }}/"><h4 class="card-title">{{ eachStory.story_title }}</h4></a>
+									<a href="/{{ each_blog.id }}/"><p class="card-text">{{ eachStory.story | safe | truncatewords:20 }}</p></a>
+								</div>
+
+								<div class="author">
+									<a href="#"><p>By {{ eachStory.name }}</p></a>
+								</div>
+								<div class="published-date">
+									<p>{{ eachStory.last_updated }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+{% endif %}
+
+{% if all_categories %}
+	<div class="container blog-content" id="BLOG-HOME">
+		<div class="row">
+			{% for eachCategory in all_categories %}	
+				<!-- {{ eachCategory.category }} -->
+				<div class="col-md-4">
+					<div class="each-card">
+						<div class="card">
+							<a href="/{{ eachCategory.category }}/"><img class="card-img-top" src="{% static 'blog/images/content.png' %}" alt="Card image cap"></a>
+							<div class="card-body">
+								<a href="/{{ eachCategory.category }}/"><h4 class="card-title">{{ eachCategory.category }}</h4></a>
+<!-- 								<a href="/{{ eachCategory.category }}/"><p class="card-text">{{ eachStory.story | safe | truncatewords:20 }}</p></a> -->
+							</div>
+
+<!-- 							<div class="author">
+								<a href="#"><p>By {{ eachStory.name }}</p></a>
+							</div>
+							<div class="published-date">
+								<p>{{ eachStory.last_updated }}</p>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}
+{% endblock content %}

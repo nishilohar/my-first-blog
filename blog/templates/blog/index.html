@@ -1,0 +1,34 @@
+{% extends "blog/snippets/base.html"%}
+{% load static %}
+
+
+{% block header_content %}
+	{% include "blog/snippets/header-data.html" %}
+{% endblock header_content %}
+
+{% block content %}
+	<div class="container blog-content" id="BLOG-HOME">
+			<div class="row">
+				{% for each_blog in latest_blog_list %}	
+					<div class="col-md-4">
+						<div class="each-card">
+							<div class="card">
+								<a href="/{{ each_blog.id }}/"><img class="card-img-top" src="{% static 'blog/images/content.png' %}" alt="Card image cap"></a>
+								<div class="card-body">
+									<a href="/{{ each_blog.id }}/"><h4 class="card-title">{{ each_blog.story_title }}</h4></a>
+									<a href="/{{ each_blog.id }}/"><p class="card-text">{{ each_blog.story | safe | truncatewords:20 }}</p></a>
+								</div>
+
+								<div class="author">
+									<a href="#"><p>By {{ each_blog.name }}</p></a>
+								</div>
+								<div class="published-date">
+									<p>{{ each_blog.last_updated }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+{% endblock content %}

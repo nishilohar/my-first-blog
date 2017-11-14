@@ -1,0 +1,17 @@
+{% extends "blog/snippets/base.html" %}
+{% block content %}
+	<br><br><br><br><br><br>
+	<div class="full-content-container">
+		<div class="author-info">
+			<h5>{{ questionDetail.name }}</h5>
+			<h6>{{ questionDetail.last_updated }}</h6>
+		</div>
+		<div class="blog-content">
+			<div class="blog-title">
+				<h2>{{ questionDetail.story_title }}</h2>
+				<p>{{ questionDetail.story }}</p>
+			</div>
+		</div>
+		<br><br><br><br><br>
+	</div>
+{% endblock content %}

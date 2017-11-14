@@ -1,0 +1,54 @@
+{% extends "blog/snippets/base_without_nav.html"%}
+
+{% block content %}
+	<div class="login-form-container">
+		<div class="row">
+			<div class="col-md-4 header-logo">
+				<a href="#">SOURCE</a>
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-4">
+						<input type="username" class="form-control" id="username" placeholder="Username">
+					</div>
+
+					<div class="col-md-4">
+						<input type="password" class="form-control" id="password" placeholder="Password">
+					</div>
+
+					<div class="col-md-4">
+						<a href="#" class="btn btn-default login-btn form-login">Log In</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+	<form class="signup-form-container" method = "POST">{% csrf_token %}
+		<div class="row">
+			<div class="col-md-6">
+				<img class="logo-image" src="images/logo--big.png" alt="logo">
+			</div>
+			<div class="col-md-6">
+				<h2>Create a new account</h2>
+				<p>Its free and always will be</p>
+				<input type="username" class="form-control" id="mob-email" placeholder="Username">
+				<div class="row">
+					<div class="col-md-6">
+						<input type="First-Name" class="form-control" id="first-name" placeholder="First-Name">
+					</div>
+					<div class="col-md-6">
+						<input type="Sur-Name" class="form-control" id="surname" placeholder="Surname">
+					</div>
+				</div>
+				<input type="Mob-email" class="form-control" id="mob-email" placeholder="Email address">
+				<input type="password" class="form-control" id="password-info" placeholder="New pasword">
+
+				<input type="password" class="form-control" id="password-info" placeholder="Confirm pasword">
+
+				<button class="btn btn-default submit-btn form-submit">Submit</a>
+			</div>
+		</div>
+	</form>
+{% endblock content %}
